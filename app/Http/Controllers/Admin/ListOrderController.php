@@ -10,7 +10,7 @@ class ListOrderController extends Controller
 {
     public function __invoke(){
 
- $orders = Order::paginate(5);
+ $orders = Order::orderBy('id','DESC')->paginate(10);
 
  return view('admin.index' , compact('orders'));
 

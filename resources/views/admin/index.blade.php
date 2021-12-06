@@ -40,7 +40,7 @@
 Buy
 
 @else
-Sell 
+<span style="color: #ff0000;">Sell</span> 
           @endif
      </td>
 </tr>
