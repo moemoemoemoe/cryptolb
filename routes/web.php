@@ -20,5 +20,13 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::group(['middleware' => 'auth'] , function(){
+Route::get('orderList','App\Http\Controllers\Admin\ListOrderController');
+});
+
+Route::group(['middleware' => 'save_last_action_at'] ,function(){
 
 Route::resource('/guest', 'App\Http\Controllers\FrontOrderController');
+
+});
+
