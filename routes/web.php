@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -26,7 +26,7 @@ Route::get('orderList','App\Http\Controllers\Admin\ListOrderController');
 
 Route::group(['middleware' => 'save_last_action_at'] ,function(){
 
-Route::resource('/guest', 'App\Http\Controllers\FrontOrderController');
+Route::resource('/', 'App\Http\Controllers\FrontOrderController');
 
 });
 

@@ -13,7 +13,7 @@
                     @endif
                    
                 </div>
-<form method="POST" action="{{route('guest.store')}}" class="form-control">
+<form method="POST" action="{{route('store')}}" class="form-control">
 	@csrf
                             <div class="controls">
                                 <div class="row">
