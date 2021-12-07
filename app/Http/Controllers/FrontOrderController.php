@@ -49,7 +49,7 @@ class FrontOrderController extends Controller
    }
         Order::create($request->validated() + ['email' => $email , 'address' => $address , 'role' => $role , 'date_of_order' => $date_of_order , 'status' => $status ]);
 
-        return Redirect::back()->with('success' , 'successfully inserted');
+        return Redirect::back()->with('success' , 'Order successfully Created');
     }
 
     /**
