@@ -56,6 +56,9 @@
               <input type="text"required autocomplete="off" name="last_name" />
             </div>
           </div>
+
+          <div class="top-row">
+
            <div class="field-wrap">
             <label>
               Mobile Number<span class="req">*</span>
@@ -68,7 +71,7 @@
             </label>
             <input type="email" autocomplete="off" name="email" />
           </div>
-          
+          </div>
           <div class="top-row">
             <div class="field-wrap">
               <label>
@@ -152,7 +155,7 @@
             <textarea name="address" autocomplete="off"></textarea>
           </div>
           
-          <button type="submit" class="button button-block "/>Sell Usdt</button>
+          <button type="submit" class="button button-block"/>Sell Usdt</button>
           
           </form>
 
