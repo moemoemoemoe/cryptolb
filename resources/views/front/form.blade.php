@@ -61,13 +61,13 @@
 
            <div class="field-wrap">
             <label>
-              Mobile Number<span class="req">*</span>
+              Mobile <span class="req">*</span>
             </label>
             <input type="number" required autocomplete="off" min="0" name="mobile"/>
           </div>
           <div class="field-wrap">
             <label>
-              Email Address<span class="req"></span>
+              Email <span class="req"></span>
             </label>
             <input type="email" autocomplete="off" name="email" />
           </div>
@@ -121,18 +121,22 @@
               <input type="text"required autocomplete="off" name="last_name" />
             </div>
           </div>
+                    <div class="top-row">
+
            <div class="field-wrap">
             <label>
-              Mobile Number<span class="req">*</span>
+              Mobile <span class="req">*</span>
             </label>
             <input type="number" required autocomplete="off" min="0" name="mobile"/>
           </div>
           <div class="field-wrap">
             <label>
-              Email Address<span class="req"></span>
+              Email <span class="req"></span>
             </label>
             <input type="email" autocomplete="off" name="email" />
           </div>
+        </div>
+
           
           <div class="top-row">
             <div class="field-wrap">
