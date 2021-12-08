@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreOrderRequest ;
+use \Illuminate\Http\Response;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use App\Models\Order;
 use Redirect;
 class FrontOrderController extends Controller
@@ -15,7 +17,7 @@ class FrontOrderController extends Controller
      */
     public function index()
     {
-        return view('front.index');
+        return view('front.form');
     }
 
     /**
@@ -34,22 +36,47 @@ class FrontOrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreOrderRequest $request)
+    public function store(Request $request)
     {
+         $rules = [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'mobile' => 'required|digits:8',
+            'city' => 'required',
+            'amount' => 'required'];
+            $validator = Validator::make($request->all(),$rules);
+        if ($validator->fails()) {
+            return redirect('/')
+            ->withInput()
+            ->withErrors($validator);
+        }
+        else
+        {
+             $data = $request->input();
+            try{
+                $order = new Order;
+                $order->full_name = $data['first_name'] .' '.$data['last_name'];
+                $order->email = $data['email'];
+                $order->mobile = $data['mobile'];
+                $order->city = $data['city'];
 
-        $email = $request->email;
-        $address = $request->address;
-        $role = $request->hidden;
-        $date_of_order = now();
-        $status = 0 ;
-    $count = Order::where('mobile' , $request->mobile)->whereDate('date_of_order' , now())->count();
-   if($count >= 2)
-   {
-    return Redirect::back()->with('success' , 'Max Two Orders In day');
-   }
-        Order::create($request->validated() + ['email' => $email , 'address' => $address , 'role' => $role , 'date_of_order' => $date_of_order , 'status' => $status ]);
+                $order->address = $data['address'];
+                $order->amount = $data['amount'];
+                $order->role = $data['hidden'];
+                $order->date_of_order = now();
+                $order->status = 0;
 
-        return Redirect::back()->with('success' , 'Order successfully Created');
+                
+                $order->save();
+                return redirect('/')->with('success',"order successfully sent !");
+            }
+            catch(Exception $e){
+                return redirect('/')->with('failed',"operation failed");
+            }
+        }
+
+            
+    
     }
 
     /**
