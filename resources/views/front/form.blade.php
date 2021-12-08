@@ -79,9 +79,9 @@
             </div>
             <div class="field-wrap">
               <label>
-                Amount usdt<span class="req">*</span>
+                USDT<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off" name="amount" />
+              <input type="number" required autocomplete="off" name="amount" min="50" />
             </div>
           </div>
            <div class="field-wrap">
@@ -143,9 +143,9 @@
             </div>
             <div class="field-wrap">
               <label>
-                Amount usdt<span class="req">*</span>
+                USDT<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off" name="amount" />
+              <input type="number" required autocomplete="off" name="amount" min="50" />
             </div>
           </div>
            <div class="field-wrap">
