@@ -17,6 +17,7 @@
         <li class="tab active"><a href="#signup">BUY</a></li>
         <li class="tab"><a href="#login">Sell</a></li>
       </ul>
+      <center>
         <ul class="tab-group">
      @if (count($errors) > 0)
                     <div class="alert alert-danger">
@@ -31,6 +32,7 @@
                         <p class="alert alert-success" style="color:#ffffff">{{Session('success')}}</p>
                     @endif
                   </ul>
+                  </center>
       <div class="tab-content">
         <div id="signup">   
           <h1>Buy USDT</h1>
