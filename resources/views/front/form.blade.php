@@ -17,23 +17,20 @@
         <li class="tab active"><a href="#signup">BUY</a></li>
         <li class="tab"><a href="#login">Sell</a></li>
       </ul>
-     <div class="tab-content">
-       
-                    @if (count($errors) > 0)
+        <ul class="tab-group">
+     @if (count($errors) > 0)
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
+                            <li style="color:#ffffff">{{ $error }}</li>
                             @endforeach
                         </ul>
                     </div>
                     @endif
                     @if(Session::has('success'))
-                        <p class="alert alert-success" style="color: #fffff">{{Session('success')}}</p>
+                        <p class="alert alert-success" style="color:#ffffff">{{Session('success')}}</p>
                     @endif
-                   
-           
-              </div>
+                  </ul>
       <div class="tab-content">
         <div id="signup">   
           <h1>Buy USDT</h1>

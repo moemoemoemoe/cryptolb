@@ -1,18 +1,4 @@
-            <div class="row" style="padding-right:50px;padding-left: 50px">
-                    @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
-                    @if(Session::has('success'))
-                        <p class="alert alert-success">{{Session('success')}}</p>
-                    @endif
-                   
-                </div>
+          
 <form method="POST" action="{{route('store')}}" class="form-control">
 	@csrf
                             <div class="controls">

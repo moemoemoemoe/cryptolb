@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use App\Models\Order;
 use Redirect;
+use Illuminate\Support\Facades\Input;
+
+
 class FrontOrderController extends Controller
 {
     /**
@@ -46,9 +49,10 @@ class FrontOrderController extends Controller
             'amount' => 'required'];
             $validator = Validator::make($request->all(),$rules);
         if ($validator->fails()) {
-            return redirect('/')
-            ->withInput()
-            ->withErrors($validator);
+            
+            
+             return redirect()->back()->withErrors($validator)->withInput($request->all());
+
         }
         else
         {
@@ -68,10 +72,15 @@ class FrontOrderController extends Controller
 
                 
                 $order->save();
-                return redirect('/')->with('success',"order successfully sent !");
+                  return redirect()->back()->with('success' , 'Your Order is Submited we Contat you As soon');
+
+        
             }
             catch(Exception $e){
-                return redirect('/')->with('failed',"operation failed");
+                   return redirect()->back()->with('errors' , 'error occurate');
+               
+                          
+
             }
         }
 

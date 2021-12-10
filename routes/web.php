@@ -21,7 +21,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 Route::group(['middleware' => 'auth'] , function(){
-Route::get('orderList','App\Http\Controllers\Admin\ListOrderController');
+Route::get('orderList','App\Http\Controllers\Admin\ListOrderController')->name('order_list');
+Route::get('update_status/{id}','App\Http\Controllers\Admin\ListOrderController@update_status')->name('update_status');
 });
 
 Route::group(['middleware' => 'save_last_action_at'] ,function(){
